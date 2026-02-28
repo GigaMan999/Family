@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحليل الشخصيات الخمس</title>
+    <title>صفات العائلة</title>
     <!-- Font Awesome للايقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -168,18 +168,8 @@
 
         .character-card h3 {
             font-size: 1.7rem;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
             color: var(--text-primary);
-        }
-
-        .age {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-            background: var(--bg-primary);
-            padding: 0.2rem 1rem;
-            border-radius: 50px;
-            display: inline-block;
         }
 
         .quick-tag {
@@ -243,14 +233,6 @@
             font-size: 2.2rem;
             line-height: 1.2;
         }
-        .analysis-title .age-badge {
-            background: var(--accent-light);
-            color: white;
-            padding: 0.25rem 1.2rem;
-            border-radius: 30px;
-            font-size: 1rem;
-            display: inline-block;
-        }
 
         .analysis-content {
             font-size: 1.15rem;
@@ -301,8 +283,8 @@
         <!-- الهيدر مع زر النهار/الليل -->
         <div class="header">
             <div class="title-section">
-                <h1>🔮 معمل تحليل الشخصيات</h1>
-                <p>الخمسة الأصليين: اضغط على أي شخصية لقراءة تحليلها النفسي</p>
+                <h1>🔮 سمات العائلة</h1>
+                <p>اضغط على أي شخص لقراءة سماته</p>
             </div>
             <div class="theme-toggle" id="themeToggle">
                 <i class="fas fa-sun active" id="sunIcon"></i>
@@ -316,35 +298,30 @@
             <div class="character-card" data-name="يسرا">
                 <div class="avatar" data-character="يسرا">🌸</div>
                 <h3>يسرا</h3>
-                <span class="age">٣٥ سنة</span>
                 <div class="quick-tag">كروشيه + طاقة إيجابية</div>
             </div>
             <!-- عمار -->
             <div class="character-card" data-name="عمار">
                 <div class="avatar" data-character="عمار">🚀</div>
                 <h3>عمار</h3>
-                <span class="age">١٨ سنة</span>
                 <div class="quick-tag">ريادي + ذكي اجتماعيًا</div>
             </div>
             <!-- مصطفى -->
             <div class="character-card" data-name="مصطفى">
                 <div class="avatar" data-character="مصطفى">🎮</div>
                 <h3>مصطفى</h3>
-                <span class="age">١٣ سنة</span>
                 <div class="quick-tag">هادئ .. كسل برو ماكس</div>
             </div>
             <!-- إياد -->
             <div class="character-card" data-name="إياد">
                 <div class="avatar" data-character="إياد">🦸</div>
                 <h3>إياد</h3>
-                <span class="age">٨ سنوات</span>
                 <div class="quick-tag">أيرون مان + دوشة</div>
             </div>
             <!-- سلمى -->
             <div class="character-card" data-name="سلمى">
                 <div class="avatar" data-character="سلمى">🎨</div>
                 <h3>سلمى</h3>
-                <span class="age">١١ سنة</span>
                 <div class="quick-tag">عفوية + مصيبة</div>
             </div>
         </div>
@@ -355,7 +332,6 @@
                 <div class="analysis-avatar" id="analysisAvatar">🌸</div>
                 <div class="analysis-title">
                     <h2 id="analysisName">يسرا</h2>
-                    <span class="age-badge" id="analysisAge">٣٥ سنة</span>
                 </div>
             </div>
             <div class="analysis-content" id="analysisText">
@@ -365,7 +341,7 @@
         </div>
 
         <footer>
-            ⚡ تحليل نفسي احترافي — ٥ شخصيات حقيقية
+            ⚡ تحليل صفات احترافي — ٥ شخصيات حقيقية
         </footer>
     </div>
 
@@ -374,9 +350,8 @@
             // ---------- بيانات التحليل الكاملة لكل شخصية ----------
             const analysisData = {
                 يسرا: {
-                    age: "٣٥ سنة",
                     avatar: "🌸",
-                    text: `🔮 تحليل شخصية يسرا (٣٥ سنة):
+                    text: `🔮 سمات يسرا:
 
 • السمة الأساسية: شخصية بناءة ومتزنة عاطفياً، عملية وموجهة للرعاية الذاتية.
 • قبل النوم: تفكيرها عملي (النوم بدري)، مش بتضيع وقت في القلق.
@@ -387,9 +362,8 @@
 • خلاصة: إنسانة عملية، متصالحة مع نفسها، خفيفة ظل، بس بتستغرق في التخطيط فتحس بتسويف.`
                 },
                 عمار: {
-                    age: "١٨ سنة",
                     avatar: "🚀",
-                    text: `🔮 تحليل شخصية عمار (١٨ سنة):
+                    text: `🔮 سمات عمار:
 
 • السمة الأساسية: قيادي، براجماتي، بيفكر باستراتيجية وذكاء اجتماعي لافت.
 • قبل النوم: بيفكر في تطوير مشروعه وخططه المستقبلية (طموح جدًا).
@@ -400,9 +374,8 @@
 • خلاصة: شخصية استراتيجية، اجتماعي، عنده قدرة على القيادة مبكرًا، يحتاج فقط يتغلب على تأجيل البداية.`
                 },
                 مصطفى: {
-                    age: "١٣ سنة",
                     avatar: "🎮",
-                    text: `🔮 تحليل شخصية مصطفى (١٣ سنة):
+                    text: `🔮 سمات مصطفى:
 
 • السمة الأساسية: عملي، بسيط، واضح، ومباشر. مزاجه مستقر.
 • قبل النوم: بيفكر في "هعمل إيه بكرة" — ده تفكير تخطيطي مبكر، بيهتم بالتفاصيل العملية.
@@ -413,9 +386,8 @@
 • خلاصة: ناضج بالنسبة لسنه، بيعرف يختار معاركه، هادئ الطباع، بس محتاج حافز عشان يكسر روتين الكسل.`
                 },
                 إياد: {
-                    age: "٨ سنوات ونصف",
                     avatar: "🦸",
-                    text: `🔮 تحليل شخصية إياد (٨ سنوات ونصف):
+                    text: `🔮 سمات إياد:
 
 • السمة الأساسية: خيال واسع، طاقة حركية عالية، طفل عفوي جدًا.
 • قبل النوم: بيفكر أنه "أيرون مان" — الخيال البطولي مسيطر، ده مؤشر ثقة وذكاء تصوري.
@@ -426,9 +398,8 @@
 • خلاصة: طفل ذكي، عنده ثقة (أيرون مان)، اجتماعي، كريم، بس لسه بيعبر عن رفضه بعفوية شديدة "هتقرف".`
                 },
                 سلمى: {
-                    age: "١١ سنة",
                     avatar: "🎨",
-                    text: `🔮 تحليل شخصية سلمى (١١ سنة):
+                    text: `🔮 سمات سلمى:
 
 • السمة الأساسية: عفوية، مرحة، ومشغولة دائمًا.
 • قبل النام: بتفكر في اللي جاي (اليوم اللي بعده) — ده تفكير استباقي بسيط.
@@ -444,7 +415,6 @@
             const cards = document.querySelectorAll('.character-card');
             const analysisSection = document.getElementById('analysisBox');
             const analysisName = document.getElementById('analysisName');
-            const analysisAge = document.getElementById('analysisAge');
             const analysisAvatar = document.getElementById('analysisAvatar');
             const analysisText = document.getElementById('analysisText');
             const closeBtn = document.getElementById('closeAnalysis');
@@ -484,7 +454,6 @@
                     const data = analysisData[name];
                     if (data) {
                         analysisName.innerText = name;
-                        analysisAge.innerText = data.age;
                         analysisAvatar.innerText = data.avatar;
                         analysisText.innerText = data.text;
                         analysisSection.classList.add('active');
