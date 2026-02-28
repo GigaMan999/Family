@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفات العائلة</title>
+    <title>صفات العائلة - رمضان كريم</title>
     <!-- Font Awesome للايقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,32 +15,36 @@
             transition: background-color 0.3s ease, color 0.2s ease, border-color 0.3s ease;
         }
 
-        /* متغيرات الألوان - الوضع النهاري */
+        /* متغيرات الألوان - الوضع النهاري (رمضاني) */
         :root {
-            --bg-primary: #f0f2f5;
+            --bg-primary: #f7f0e6;
             --bg-secondary: #ffffff;
-            --bg-card: #ffffff;
-            --text-primary: #1a1a1a;
-            --text-secondary: #4a4a4a;
-            --accent: #6b4f8b;
-            --accent-light: #8f79b0;
+            --bg-card: #fff9f0;
+            --text-primary: #2d1b0e;
+            --text-secondary: #5d3a1a;
+            --accent: #b35e2e;
+            --accent-light: #d49b6a;
             --shadow: 0 10px 30px rgba(0,0,0,0.08);
-            --border: #eaeef2;
-            --card-hover: #f8f4ff;
+            --border: #ecd6b5;
+            --card-hover: #fff2e0;
+            --moon-color: #f7c35c;
+            --star-color: #ffd966;
         }
 
-        /* الوضع المظلم */
+        /* الوضع المظلم (رمضاني) */
         [data-theme="dark"] {
-            --bg-primary: #1a1b1e;
-            --bg-secondary: #2c2d33;
-            --bg-card: #2c2d33;
-            --text-primary: #f0e9ff;
-            --text-secondary: #c7c7d1;
-            --accent: #b79be4;
-            --accent-light: #9f8ac7;
+            --bg-primary: #0e1a2b;
+            --bg-secondary: #1a2a3a;
+            --bg-card: #1e3144;
+            --text-primary: #f0e9d8;
+            --text-secondary: #d4b68a;
+            --accent: #d4a373;
+            --accent-light: #b88b5e;
             --shadow: 0 10px 30px rgba(0,0,0,0.5);
-            --border: #3f4048;
-            --card-hover: #3a3b44;
+            --border: #4a5b6b;
+            --card-hover: #2a4055;
+            --moon-color: #f8e3a7;
+            --star-color: #ffdb7e;
         }
 
         body {
@@ -51,14 +55,70 @@
             justify-content: center;
             padding: 1.5rem;
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* نجوم متحركة في الخلفية */
+        body::before {
+            content: '';
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(2px 2px at 15px 30px, var(--star-color), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 72px 89px, var(--star-color), rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 150px 230px, var(--star-color), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 290px 540px, var(--star-color), rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 650px 320px, var(--star-color), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 890px 130px, var(--star-color), rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 1050px 760px, var(--star-color), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 400px 870px, var(--star-color), rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 1200px 520px, var(--star-color), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 30px 920px, var(--star-color), rgba(0,0,0,0));
+            background-repeat: repeat;
+            z-index: -1;
+            opacity: 0.5;
+            animation: twinkle 4s infinite alternate;
+        }
+
+        /* زينة رمضان (فوانيس) */
+        body::after {
+            content: '🏮🏮🏮';
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            letter-spacing: 20px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+            animation: swing 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+        @keyframes swing {
+            0% { transform: rotate(-2deg); }
+            100% { transform: rotate(2deg); }
         }
 
         .container {
             max-width: 1300px;
             width: 100%;
+            position: relative;
+            z-index: 1;
         }
 
-        /* رأس الموقع */
+        /* رأس الموقع (رمضاني) */
         .header {
             display: flex;
             justify-content: space-between;
@@ -71,10 +131,19 @@
         .title-section h1 {
             font-size: 2.2rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), #c49ad9);
+            background: linear-gradient(135deg, #b35e2e, #d49b6a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title-section h1 i {
+            font-size: 2rem;
+            margin-left: 0.5rem;
+            color: var(--moon-color);
+            -webkit-text-fill-color: initial;
         }
 
         .title-section p {
@@ -123,7 +192,7 @@
             border-radius: 32px;
             padding: 1.8rem 1.2rem 1.5rem;
             box-shadow: var(--shadow);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             cursor: pointer;
             transition: all 0.25s ease;
             display: flex;
@@ -131,13 +200,26 @@
             align-items: center;
             text-align: center;
             backdrop-filter: blur(2px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* إضافة هلال صغير لكل بطاقة */
+        .character-card::before {
+            content: '🌙';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.2rem;
+            opacity: 0.3;
+            transform: rotate(-15deg);
         }
 
         .character-card:hover {
             transform: translateY(-10px);
             background: var(--card-hover);
             border-color: var(--accent-light);
-            box-shadow: 0 20px 35px rgba(106, 79, 139, 0.2);
+            box-shadow: 0 20px 35px rgba(180, 90, 50, 0.2);
         }
 
         /* الصورة الكرتونية (دائرة) */
@@ -157,6 +239,26 @@
             color: white;
             text-shadow: 2px 2px 0 #4a2f6e;
             transition: 0.2s;
+            position: relative;
+        }
+
+        /* إطار ذهبي حول الصورة */
+        .avatar::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            border: 2px dashed var(--accent-light);
+            opacity: 0.5;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* رموز الكرتون المميزة لكل شخصية */
@@ -193,8 +295,22 @@
             border-radius: 50px 50px 30px 30px;
             padding: 2.5rem 2rem;
             box-shadow: var(--shadow);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             display: none;
+            position: relative;
+        }
+
+        /* زينة حول صندوق التحليل */
+        .analysis-section::before {
+            content: '✨🌟✨';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            background: var(--bg-secondary);
+            padding: 0 20px;
+            color: var(--star-color);
         }
 
         .analysis-section.active {
@@ -269,12 +385,19 @@
             color: var(--text-secondary);
             margin-top: 4rem;
             font-size: 0.9rem;
+            position: relative;
+        }
+
+        footer i {
+            color: var(--moon-color);
+            margin: 0 0.3rem;
         }
 
         /* Responsive */
         @media (max-width: 650px) {
             .cards-grid { gap: 1rem; }
             .avatar { width: 120px; height: 120px; font-size: 3.5rem; }
+            body::after { font-size: 1.2rem; letter-spacing: 10px; }
         }
     </style>
 </head>
@@ -283,8 +406,8 @@
         <!-- الهيدر مع زر النهار/الليل -->
         <div class="header">
             <div class="title-section">
-                <h1>🔮 سمات العائلة</h1>
-                <p>اضغط على أي شخص لقراءة سماته</p>
+                <h1><i class="fas fa-star"></i> سمات العائلة <i class="fas fa-moon"></i></h1>
+                <p>✨ رمضان كريم ✨ - اضغط على أي شخص لقراءة سماته</p>
             </div>
             <div class="theme-toggle" id="themeToggle">
                 <i class="fas fa-sun active" id="sunIcon"></i>
@@ -341,7 +464,7 @@
         </div>
 
         <footer>
-            ⚡ تحليل صفات احترافي — ٥ شخصيات حقيقية
+            <i class="fas fa-star"></i> صفات ٥ شخصيات حقيقية <i class="fas fa-star"></i>
         </footer>
     </div>
 
